@@ -1,0 +1,15 @@
+.parking-slot {
+    background-color: $color-primary;
+
+    display: flex;
+    padding: 2rem;
+
+    border-radius: 4px;
+    transition: all .2s;
+    
+    &:hover{
+        box-shadow: 0 2rem 2rem rgba($color-black, 0.3);
+        transform: translateY(-2px) scale(1.02);
+        
+    }
+}

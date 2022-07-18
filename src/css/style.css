@@ -11,3 +11,49 @@ html {
 body {
   padding: 3rem;
   box-sizing: border-box; }
+
+.container {
+  background-color: bisque;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(2, 1fr); }
+
+.parking-slots {
+  grid-column: 1 / 2;
+  padding: 10rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: min-content;
+  grid-auto-rows: min-content;
+  height: 90vh;
+  position: relative; }
+  .parking-slots__create {
+    position: absolute;
+    bottom: 10rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2rem;
+    background-color: #ff7730;
+    border-radius: 4px;
+    transition: all .2s;
+    z-index: 100;
+    cursor: pointer; }
+    .parking-slots__create:hover {
+      box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.3);
+      transform: translateX(-50%) translateY(-2px) scale(1.02); }
+
+.menu {
+  grid-column: 2 / 3;
+  padding: 10rem;
+  background-color: olivedrab; }
+
+.parking-slot {
+  background-color: #55c57a;
+  display: flex;
+  padding: 2rem;
+  border-radius: 4px;
+  transition: all .2s; }
+  .parking-slot:hover {
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px) scale(1.02); }
