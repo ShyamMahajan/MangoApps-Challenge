@@ -18,7 +18,7 @@ export class FiltersForm {
 
     submitHandler(e:SubmitEvent){
         e.preventDefault();
-        ParkingSlotsState.filterParkingSlots(this.colorInput.value, this.regNoInput.value, this.ticketInput.value, false)
+        ParkingSlotsState.filterParkingSlots(this.colorInput.value, this.ticketInput.value, this.regNoInput.value, false)
         console.log("Filteres",ParkingSlotsState.filtered_slots)
     }
 
@@ -26,6 +26,6 @@ export class FiltersForm {
         this.colorInput.value = ""
         this.regNoInput.value = ""
         this.ticketInput.value = ""
-        ParkingSlotsState.filterParkingSlots(this.colorInput.value, this.regNoInput.value, this.ticketInput.value, true)
+        ParkingSlotsState.filterParkingSlots(this.colorInput.value, this.ticketInput.value, this.regNoInput.value, true)
     }
 }
