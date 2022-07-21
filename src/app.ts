@@ -5,5 +5,5 @@ import { NoSlot } from "./components/NoSlot";
 
 export const no_slot_render = NoSlot.getInstance()
 export const slot_component = CreateSlot.getInstance();
-new Form()
+export const formElement = new Form()
 new FiltersForm()

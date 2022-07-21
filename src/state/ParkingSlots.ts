@@ -1,4 +1,4 @@
-import { no_slot_render, slot_component } from "../app";
+import { formElement, no_slot_render, slot_component } from "../app";
 import { ParkingSlot } from "../models/ParkingSlot";
 
 class ParkingSlots {
@@ -19,6 +19,7 @@ class ParkingSlots {
         this.total_slots.push(new ParkingSlot(this.total_slots.length + 1))
         slot_component.renderSlot(this.total_slots[this.total_slots.length - 1])
         no_slot_render.renderMessage()
+        this.updateCreateTicketState()
         return this.total_slots[this.total_slots.length - 1]
     }
 
@@ -27,6 +28,14 @@ class ParkingSlots {
         return availSlot;
     }
 
+    updateCreateTicketState(){
+        const availSlot = this.total_slots.find(slot => slot.isFree)
+        if(availSlot){
+            formElement.createBtnActive(true)
+        }else{
+            formElement.createBtnActive(false)
+        }
+    }
 
     filterParkingSlots(color:string="", ticket_no: string = "",reg_no:string="", isReset:boolean){
         if(isReset){

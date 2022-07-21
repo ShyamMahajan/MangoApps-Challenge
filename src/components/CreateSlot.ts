@@ -72,7 +72,7 @@ export class CreateSlot {
     slot.car_color= car_color;
     slot.car_reg_no = car_reg_no;
     slot.ticket_no = ticket
-    
+    ParkingSlotsState.updateCreateTicketState()
     this.updateSlot(slot)
     return slot;
   }
