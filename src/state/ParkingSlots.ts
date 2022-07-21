@@ -1,3 +1,4 @@
+import { slot_component } from "../app";
 import { ParkingSlot } from "../models/ParkingSlot";
 
 class ParkingSlots {
@@ -15,6 +16,8 @@ class ParkingSlots {
 
     createSlot(){
         this.total_slots.push(new ParkingSlot(this.total_slots.length + 1))
+        console.log(this.total_slots)
+        slot_component.renderSlot(this.total_slots[this.total_slots.length - 1])
         return this.total_slots[this.total_slots.length - 1]
     }
 
