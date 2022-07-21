@@ -42,7 +42,7 @@ export class CreateSlot {
       slotNum.textContent = slot.slot_no.toString();
 
       slotCar.classList.add("parking-slot__car");
-      slotCar.textContent = slot.car_color || "";
+      slotCar.textContent = slot.ticket_no || "";
       slotReg.classList.add("parking-slot__reg-number");
       slotReg.textContent = slot.car_reg_no || "";
 
@@ -53,5 +53,27 @@ export class CreateSlot {
       this.parkingSlots.appendChild(divMain)
     }
   }
-}
 
+  updateSlot(slot:ParkingSlot){
+    const Parkslot: HTMLDivElement = this.parkingSlots.querySelector(`.parking-slot--${slot.slot_no}`)! as HTMLDivElement
+
+    Parkslot.style.backgroundColor = slot.car_color!.toString();
+    const slot_car: HTMLDivElement = Parkslot.querySelector(".parking-slot__car")! as HTMLDivElement
+    if(slot_car) slot_car.textContent = slot.ticket_no
+
+    const slot_reg_no: HTMLDivElement = Parkslot.querySelector(".parking-slot__reg-number")! as HTMLDivElement
+        if(slot_reg_no) slot_reg_no.textContent = slot.car_reg_no
+  }
+
+  park(slot_no:string, car_color: string, car_reg_no: string, ticket:string){
+    const slot = ParkingSlotsState.total_slots.find(item => item.slot_no.toString() === slot_no)!
+
+    slot.isFree = false;
+    slot.car_color= car_color;
+    slot.car_reg_no = car_reg_no;
+    slot.ticket_no = ticket
+    
+    this.updateSlot(slot)
+    return slot;
+  }
+}
