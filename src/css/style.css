@@ -31,7 +31,7 @@ body {
   .parking-slots__create {
     position: absolute;
     top: 3rem;
-    right: -2rem;
+    right: 50%;
     transform: translateX(-50%);
     padding: 2rem;
     background-color: #ff7730;
@@ -46,7 +46,11 @@ body {
 .menu {
   grid-column: 2 / 3;
   padding: 10rem;
-  position: relative; }
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around; }
 
 .parking-slot {
   background-color: #55c57a;
@@ -61,12 +65,8 @@ body {
 .menu-box {
   background-color: white;
   padding: 5rem;
-  position: absolute;
   border-radius: 4px;
   box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.3);
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: flex-start; }

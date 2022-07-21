@@ -10,7 +10,7 @@ export class Form{
     regNoInput: HTMLInputElement;
 
     constructor(){
-        this.form = document.querySelector(".form")! as HTMLFormElement;
+        this.form = document.querySelector("#form_create")! as HTMLFormElement;
         this.form.addEventListener("submit", this.submitHandler.bind(this))
 
         this.colorInput = document.querySelector("#color")! as HTMLInputElement;

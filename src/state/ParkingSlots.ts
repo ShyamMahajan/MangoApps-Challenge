@@ -3,6 +3,7 @@ import { ParkingSlot } from "../models/ParkingSlot";
 
 class ParkingSlots {
     total_slots: ParkingSlot[] = [];
+    filtered_slots: ParkingSlot[] = []
     private static _instance: ParkingSlots;
 
     static getInstance(){
@@ -24,6 +25,19 @@ class ParkingSlots {
     getAvailableSlot(){
         const availSlot = this.total_slots.find(slot => slot.isFree)
         return availSlot;
+    }
+
+
+    filterParkingSlots(color:string="", ticket_no: string = "",reg_no:string="", isReset:boolean){
+        if(isReset){
+            this.filtered_slots = [...this.total_slots]; 
+        }else{
+            this.filtered_slots = this.total_slots.filter((slot:ParkingSlot) => {
+                if(slot.car_color === color || slot.ticket_no === ticket_no || slot.car_reg_no === reg_no) return true;
+                else return false;
+            })
+        }
+        slot_component.renderFilteredSlots(isReset)
     }
 }
 

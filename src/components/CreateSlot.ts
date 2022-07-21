@@ -76,4 +76,58 @@ export class CreateSlot {
     this.updateSlot(slot)
     return slot;
   }
+
+  renderFilteredSlots(isReset:boolean){
+    if(isReset){
+      this.parkingSlots.replaceChildren(...ParkingSlotsState.total_slots.map((slot: ParkingSlot) => {
+        const divMain = document.createElement("div");
+        const slotNum = document.createElement("h1");
+        const slotCar = document.createElement("div");
+        const slotReg = document.createElement("div");
+  
+        divMain.classList.add("parking-slot");
+        divMain.classList.add(`parking-slot--${slot.slot_no}`);
+        
+        if(slot.car_color){
+          divMain.style.backgroundColor = slot.car_color.toString()
+        }
+        slotNum.classList.add("parking-slot__number");
+        slotNum.textContent = slot.slot_no.toString();
+  
+        slotCar.classList.add("parking-slot__car");
+        slotCar.textContent = slot.ticket_no || "";
+        slotReg.classList.add("parking-slot__reg-number");
+        slotReg.textContent = slot.car_reg_no || "";
+  
+        divMain.appendChild(slotNum)
+        divMain.appendChild(slotCar)
+        divMain.appendChild(slotReg)
+        return divMain
+      }))
+    }else{
+      this.parkingSlots.replaceChildren(...ParkingSlotsState.filtered_slots.map((slot: ParkingSlot) => {
+        const divMain = document.createElement("div");
+        const slotNum = document.createElement("h1");
+        const slotCar = document.createElement("div");
+        const slotReg = document.createElement("div");
+  
+        divMain.classList.add("parking-slot");
+        divMain.classList.add(`parking-slot--${slot.slot_no}`);
+  
+        divMain.style.backgroundColor = slot.car_color!.toString();
+        slotNum.classList.add("parking-slot__number");
+        slotNum.textContent = slot.slot_no.toString();
+  
+        slotCar.classList.add("parking-slot__car");
+        slotCar.textContent = slot.ticket_no || "";
+        slotReg.classList.add("parking-slot__reg-number");
+        slotReg.textContent = slot.car_reg_no || "";
+  
+        divMain.appendChild(slotNum)
+        divMain.appendChild(slotCar)
+        divMain.appendChild(slotReg)
+        return divMain
+      }))
+    }
+  }
 }

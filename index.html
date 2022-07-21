@@ -11,59 +11,14 @@
 <body>
     <div class="container">
         <div class="parking-slots">
-            <!-- <div class="parking-slot">
-                <h1 class="parking-slot__number">1</h1>
-                <div class="parking-slot__car">Car</div>
-                <div class="parking-slot__reg-number">GJ@@%GSDG</div>
-            </div> -->
-            <!-- <div class="parking-slot">
-                <h1 class="parking-slot__number">1</h1>
-                <div class="parking-slot__car">Car</div>
-                <div class="parking-slot__reg-number">GJ@@%GSDG</div>
-            </div>
-            <div class="parking-slot">
-                <h1 class="parking-slot__number">1</h1>
-                <div class="parking-slot__car">Car</div>
-                <div class="parking-slot__reg-number">GJ@@%GSDG</div>
-            </div>
-            <div class="parking-slot">
-                <h1 class="parking-slot__number">1</h1>
-                <div class="parking-slot__car">Car</div>
-                <div class="parking-slot__reg-number">GJ@@%GSDG</div>
-            </div>
-            <div class="parking-slot">
-                <h1 class="parking-slot__number">1</h1>
-                <div class="parking-slot__car">Car</div>
-                <div class="parking-slot__reg-number">GJ@@%GSDG</div>
-            </div>
-            <div class="parking-slot">
-                <h1 class="parking-slot__number">1</h1>
-                <div class="parking-slot__car">Car</div>
-                <div class="parking-slot__reg-number">GJ@@%GSDG</div>
-            </div>
-            <div class="parking-slot">
-                <h1 class="parking-slot__number">1</h1>
-                <div class="parking-slot__car">Car</div>
-                <div class="parking-slot__reg-number">GJ@@%GSDG</div>
-            </div>
-            <div class="parking-slot">
-                <h1 class="parking-slot__number">1</h1>
-                <div class="parking-slot__car">Car</div>
-                <div class="parking-slot__reg-number">GJ@@%GSDG</div>
-            </div>
-            <div class="parking-slot">
-                <h1 class="parking-slot__number">1</h1>
-                <div class="parking-slot__car">Car</div>
-                <div class="parking-slot__reg-number">GJ@@%GSDG</div>
-            </div> -->
-            <div class="parking-slots__create">
-                +
-            </div>
+        </div>
+        <div class="parking-slots__create">
+            +
         </div>
         <div class="menu">
             <div class="menu-box">
                 <h1 class="heading">Park a Car!</h1>
-                <form class="form">
+                <form id="form_create"class="form">
                     <div class="form__item">
                         <label for="car_reg_number" class="form__label">Car Registration no</label>
                         <input id="reg-no" name="car_reg_number" type="text" class="form__input" required>
@@ -74,6 +29,29 @@
                     </div>
                     <div class="form__item">
                         <button type="submit" class="form__submit">Create Ticket</button>
+                    </div>
+                </form>
+            </div>
+            <div class="menu-box">
+                <h1 class="heading">Filters</h1>
+                <form id="form_filters" class="form">
+                    <div class="form__item">
+                        <label for="reg_number_filter" class="form__label">Car Registration no</label>
+                        <input id="reg-no_filter" name="reg_number_filter" type="text" class="form__input" required>
+                    </div>
+                    <div class="form__item">
+                        <label for="ticket_no" class="form__label">Ticket Number</label>
+                        <input id="ticket_filter" name="ticket_no" type="text" class="form__input">
+                    </div>
+                    <div class="form__item">
+                        <label for="car_color-filter" class="form__label">Car Color</label>
+                        <input id="color_filter" name="car_color-filter" type="color" class="form__input">
+                    </div>
+                    <div class="form__item">
+                        <button type="submit" class="form__submit">Filter</button>
+                    </div>
+                    <div class="form__item">
+                        <button class="reset-btn">Reset Filters</button>
                     </div>
                 </form>
             </div>
