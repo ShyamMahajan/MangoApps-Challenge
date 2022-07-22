@@ -1,33 +1,49 @@
 .parking-slot {
-    background-color: $color-primary;
+    background-color: $color-grey-dark;
+    min-height: 7rem;
 
     display: flex;
     padding: 2rem;
 
+    color: $color-grey-light-1;
+
     border-radius: 4px;
     transition: all .2s;
-    
+    position: relative;
+    display: flex;
+    flex-direction: column;
     &:hover{
         box-shadow: 0 2rem 2rem rgba($color-black, 0.3);
         transform: translateY(-2px) scale(1.02);
-        
+    }
+
+    &__number{
+        position: absolute;
+        top:1px;
+        left:1px;
+        // padding: 2px;
+    }
+    &__car{
+        font-size: 1.4rem;
+        margin-bottom: .4rem;
+    }
+    &__reg-number{
+        font-size: 1.4rem;
     }
 }
 
 .menu-box{
     background-color: white;
-    padding: 5rem;
-    // position: absolute;
+    padding: 2.5rem;
     border-radius: 4px;
     box-shadow: 0 2rem 2rem rgba($color-black, 0.3);
-    // top: 50%;
-    // left: 50%;
-    // transform: translateY(-50%) translateX(-50%);
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    
+
+    &:first-child{
+        margin-bottom: 2.5rem;
+    }
 }
 
 .heading{
@@ -35,4 +51,93 @@
     font-size: 1.8rem;
     color: $color-grey-dark-2;
     margin-bottom: 3rem;
+}
+
+.form{
+    &__item{
+        display: flex;
+        padding: 1rem;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+    }
+    &__label{
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-left: 2rem;
+        margin-top: 0.7rem;
+        display: block;
+        transition: all 0.3s;
+        width: 55%;
+    }
+    &__submit{
+        text-transform: uppercase;
+        text-decoration: none;
+        border: none;
+        outline: none;
+        background-color: rgba($color-primary-light, 0.8);
+        font-size: 1.2rem;
+        font-family: inherit;
+        padding: 1.2rem 2rem;
+        border-radius: 2px;
+        transition: all .2s;
+        color: $color-grey-dark-3;
+        letter-spacing: 2px;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        &:disabled{
+            &:hover{
+                box-shadow: none;
+                transform: translateY(0px) scale(1);
+                cursor: auto;
+            }
+            background-color: $color-grey-dark-2;
+        }
+        &:hover{
+            cursor: pointer;
+            box-shadow: 0 1rem 2rem rgba($color-black, 0.3);
+            transform: translateY(-2px) scale(1.02);
+        }
+    }
+    &__submit_create{
+        background-color: $color-secondary-dark;
+        &:hover{
+            background-color: $color-secondary-light;
+        }
+
+    }
+    &__input{
+        font-size: 1.2rem;
+        font-family: inherit;
+        padding: 1.2rem 2rem;
+        border-radius: 2px;
+        border: none;
+        color: inherit;
+        background-color: rgba($color-primary-light, 0.5);
+        border-bottom: 3px solid transparent;
+        width: 60%;
+        display: block;
+        transition: all 0.3s;
+
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-2;
+          }
+      
+          &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+            border-bottom: 3px solid $color-primary;
+          }
+          &:focus:invalid {
+            border-bottom: 3px solid $color-secondary-dark;
+          }
+    }
+  
+}
+
+.reset-btn{
+    background-color: $color-secondary-dark;
+    &:hover{
+        background-color: $color-secondary-light;
+    }
 }

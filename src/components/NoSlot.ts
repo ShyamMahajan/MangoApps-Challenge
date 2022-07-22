@@ -20,7 +20,7 @@ export class NoSlot {
 
     this.message = document.createElement("h1") as HTMLElement;
     this.message.classList.add("parking-slots__message");
-    this.message.textContent = "No Slots, please create slots";
+    this.message.textContent = "No Slots, please create more parking-slots!";
     if (!ParkingSlotsState.total_slots.length) {
       this.renderMessage();
     }

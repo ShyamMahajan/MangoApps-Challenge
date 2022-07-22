@@ -59,10 +59,10 @@ export class CreateSlot {
 
     Parkslot.style.backgroundColor = slot.car_color!.toString();
     const slot_car: HTMLDivElement = Parkslot.querySelector(".parking-slot__car")! as HTMLDivElement
-    if(slot_car) slot_car.textContent = slot.ticket_no
+    if(slot_car) slot_car.textContent = `Ticket# : ${slot.ticket_no || ""}`;
 
     const slot_reg_no: HTMLDivElement = Parkslot.querySelector(".parking-slot__reg-number")! as HTMLDivElement
-        if(slot_reg_no) slot_reg_no.textContent = slot.car_reg_no
+        if(slot_reg_no) slot_reg_no.textContent = `Car-Reg# : ${slot.car_reg_no || ""}`
   }
 
   park(slot_no:string, car_color: string, car_reg_no: string, ticket:string){
@@ -95,9 +95,9 @@ export class CreateSlot {
         slotNum.textContent = slot.slot_no.toString();
   
         slotCar.classList.add("parking-slot__car");
-        slotCar.textContent = slot.ticket_no || "";
+        slotCar.textContent = slot.ticket_no ? `Ticket# : ${slot.ticket_no || ""}` : "";
         slotReg.classList.add("parking-slot__reg-number");
-        slotReg.textContent = slot.car_reg_no || "";
+        slotReg.textContent = slot.car_reg_no ? `Car-Reg# : ${slot.car_reg_no || ""}` : "";
   
         divMain.appendChild(slotNum)
         divMain.appendChild(slotCar)
@@ -119,9 +119,9 @@ export class CreateSlot {
         slotNum.textContent = slot.slot_no.toString();
   
         slotCar.classList.add("parking-slot__car");
-        slotCar.textContent = slot.ticket_no || "";
+        slotCar.textContent = `Ticket# : ${slot.ticket_no || ""}`
         slotReg.classList.add("parking-slot__reg-number");
-        slotReg.textContent = slot.car_reg_no || "";
+        slotReg.textContent = `Car-Reg# : ${slot.car_reg_no || ""}`;
   
         divMain.appendChild(slotNum)
         divMain.appendChild(slotCar)

@@ -6,14 +6,15 @@
   box-sizing: inherit; }
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  letter-spacing: 1.25px; }
 
 body {
   padding: 3rem;
   box-sizing: border-box; }
 
 .container {
-  background-color: bisque;
+  background-color: #eee;
   display: grid;
   gap: 3rem;
   grid-template-columns: repeat(2, 1fr); }
@@ -28,20 +29,9 @@ body {
   grid-auto-rows: min-content;
   min-height: 95vh;
   position: relative; }
-  .parking-slots__create {
-    position: absolute;
-    top: 3rem;
-    right: 50%;
-    transform: translateX(-50%);
-    padding: 2rem;
-    background-color: #ff7730;
-    border-radius: 50%;
-    transition: all .2s;
-    z-index: 100;
-    cursor: pointer; }
-    .parking-slots__create:hover {
-      box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.3);
-      transform: translateX(-50%) translateY(-2px) scale(1.02); }
+  .parking-slots__message {
+    grid-column: 1 / -1;
+    color: #999; }
 
 .menu {
   grid-column: 2 / 3;
@@ -50,29 +40,118 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around; }
+  justify-content: space-between; }
 
 .parking-slot {
-  background-color: #55c57a;
+  background-color: #777;
+  min-height: 7rem;
   display: flex;
   padding: 2rem;
+  color: #f7f7f7;
   border-radius: 4px;
-  transition: all .2s; }
+  transition: all .2s;
+  position: relative;
+  display: flex;
+  flex-direction: column; }
   .parking-slot:hover {
     box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.3);
     transform: translateY(-2px) scale(1.02); }
+  .parking-slot__number {
+    position: absolute;
+    top: 1px;
+    left: 1px; }
+  .parking-slot__car {
+    font-size: 1.4rem;
+    margin-bottom: .4rem; }
+  .parking-slot__reg-number {
+    font-size: 1.4rem; }
 
 .menu-box {
   background-color: white;
-  padding: 5rem;
+  padding: 2.5rem;
   border-radius: 4px;
   box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   align-items: flex-start; }
+  .menu-box:first-child {
+    margin-bottom: 2.5rem; }
 
 .heading {
   align-self: center;
   font-size: 1.8rem;
   color: #999;
   margin-bottom: 3rem; }
+
+.form__item {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative; }
+
+.form__label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.3s;
+  width: 55%; }
+
+.form__submit {
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  background-color: rgba(126, 213, 111, 0.8);
+  font-size: 1.2rem;
+  font-family: inherit;
+  padding: 1.2rem 2rem;
+  border-radius: 2px;
+  transition: all .2s;
+  color: #333;
+  letter-spacing: 2px;
+  margin-left: 2rem;
+  margin-top: .7rem; }
+  .form__submit:disabled {
+    background-color: #999; }
+    .form__submit:disabled:hover {
+      box-shadow: none;
+      transform: translateY(0px) scale(1);
+      cursor: auto; }
+  .form__submit:hover {
+    cursor: pointer;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px) scale(1.02); }
+
+.form__submit_create {
+  background-color: #ff7730; }
+  .form__submit_create:hover {
+    background-color: #ffb900; }
+
+.form__input {
+  font-size: 1.2rem;
+  font-family: inherit;
+  padding: 1.2rem 2rem;
+  border-radius: 2px;
+  border: none;
+  color: inherit;
+  background-color: rgba(126, 213, 111, 0.5);
+  border-bottom: 3px solid transparent;
+  width: 60%;
+  display: block;
+  transition: all 0.3s; }
+  .form__input::-webkit-input-placeholder {
+    color: #999; }
+  .form__input:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #55c57a; }
+  .form__input:focus:invalid {
+    border-bottom: 3px solid #ff7730; }
+
+.reset-btn {
+  background-color: #ff7730; }
+  .reset-btn:hover {
+    background-color: #ffb900; }

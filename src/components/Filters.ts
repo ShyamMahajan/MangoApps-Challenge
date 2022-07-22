@@ -12,14 +12,13 @@ export class FiltersForm {
         this.ticketInput = document.querySelector("#ticket_filter")! as HTMLInputElement;
         this.colorInput = document.querySelector("#color_filter")! as HTMLInputElement;
         this.regNoInput = document.querySelector("#reg-no_filter")! as HTMLInputElement;
-        this.reset = document.querySelector(".reset-btn")! as HTMLButtonElement;
+        this.reset = document.querySelector("#filter_reset")! as HTMLButtonElement;
         this.reset.addEventListener("click", this.resetHandler.bind(this))
     }
 
     submitHandler(e:SubmitEvent){
         e.preventDefault();
         ParkingSlotsState.filterParkingSlots(this.colorInput.value, this.ticketInput.value, this.regNoInput.value, false)
-        console.log("Filteres",ParkingSlotsState.filtered_slots)
     }
 
     resetHandler(){

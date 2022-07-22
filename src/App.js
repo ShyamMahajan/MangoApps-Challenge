@@ -68,7 +68,6 @@ class ParkingSlots {
     }
 
     updateSlot(slot){
-        console.log("fsdf",slot)
         const parkingSlots = document.querySelector(".parking-slots");
         const Parkslot = parkingSlots.querySelector(`.parking-slot--${slot.number}`)
         Parkslot.style['background-color'] = slot.car_color
@@ -170,8 +169,6 @@ class Tickets {
         const slot_no = parkingSlots.getAvailableSlot()
         const ticket = this.addTicket(slot_no.number, car.reg_no)
         const slot = parkingSlots.park(slot_no.number, car.color, car.reg_no, ticket.number)
-        console.log(slot)
-
     }
 
     static getInstance(){
