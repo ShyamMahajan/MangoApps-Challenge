@@ -129,6 +129,8 @@ body {
   background-color: #ff7730; }
   .form__submit_create:hover {
     background-color: #ffb900; }
+  .form__submit_create:disabled:hover {
+    background-color: #999; }
 
 .form__input {
   font-size: 1.2rem;

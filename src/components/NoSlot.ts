@@ -20,17 +20,26 @@ export class NoSlot {
 
     this.message = document.createElement("h1") as HTMLElement;
     this.message.classList.add("parking-slots__message");
-    this.message.textContent = "No Slots, please create more parking-slots!";
     if (!ParkingSlotsState.total_slots.length) {
       this.renderMessage();
     }
   }
 
   renderMessage() {
-    if (!ParkingSlotsState.total_slots.length) {
-      this.parkingSlots.appendChild(this.message);
-    } else {
-        this.message.remove()
+    if(ParkingSlotsState.isFilter){
+      if (!ParkingSlotsState.filtered_slots.length) {
+        this.message.textContent = "No matching results! try different filters";
+        this.parkingSlots.appendChild(this.message);
+      } else {
+          this.message.remove()
+      }
+    }else{
+      if (!ParkingSlotsState.total_slots.length) {
+        this.message.textContent = "No Slots, please create more parking-slots!";
+        this.parkingSlots.appendChild(this.message);
+      } else {
+          this.message.remove()
+      }
     }
   }
 }

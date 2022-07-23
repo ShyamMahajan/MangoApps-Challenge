@@ -2,7 +2,7 @@ import { ParkingSlot } from "../models/ParkingSlot";
 import { ParkingSlotsState } from "../state/ParkingSlots";
 
 export class CreateSlot {
-  createBtn: HTMLDivElement;
+  createBtn: HTMLButtonElement;
   parkingSlots: HTMLDivElement;
   private static _instance: CreateSlot;
 
@@ -17,7 +17,7 @@ export class CreateSlot {
   constructor() {
     this.createBtn = document.querySelector(
       ".parking-slots__create"
-    )! as HTMLDivElement;
+    )! as HTMLButtonElement;
     this.createBtn.addEventListener(
       "click",
       ParkingSlotsState.createSlot.bind(ParkingSlotsState)
@@ -26,6 +26,14 @@ export class CreateSlot {
     this.parkingSlots = document.querySelector(
       ".parking-slots"
     )! as HTMLDivElement;
+  }
+
+  createSlotButtonActive(isActive:boolean){
+    if(isActive){
+      this.createBtn.disabled = false
+    }else{
+      this.createBtn.disabled = true
+    }
   }
 
   renderSlot(slot: ParkingSlot) {

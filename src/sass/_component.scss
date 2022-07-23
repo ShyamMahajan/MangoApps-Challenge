@@ -101,10 +101,16 @@
     }
     &__submit_create{
         background-color: $color-secondary-dark;
+        
         &:hover{
             background-color: $color-secondary-light;
         }
 
+        &:disabled{
+            &:hover{
+                background-color: $color-grey-dark-2;
+            }
+        }
     }
     &__input{
         font-size: 1.2rem;

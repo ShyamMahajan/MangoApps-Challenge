@@ -5,6 +5,7 @@ class ParkingSlots {
     total_slots: ParkingSlot[] = [];
     filtered_slots: ParkingSlot[] = []
     private static _instance: ParkingSlots;
+    isFilter:boolean = false;
 
     static getInstance(){
         if (this._instance) {
@@ -39,14 +40,21 @@ class ParkingSlots {
 
     filterParkingSlots(color:string="", ticket_no: string = "",reg_no:string="", isReset:boolean){
         if(isReset){
-            this.filtered_slots = [...this.total_slots]; 
+            this.isFilter = false;
+            this.filtered_slots = [...this.total_slots];
+            formElement.createBtnActive(true)
+            slot_component.createSlotButtonActive(true)
         }else{
+            this.isFilter = true;
             this.filtered_slots = this.total_slots.filter((slot:ParkingSlot) => {
                 if(slot.car_color === color || slot.ticket_no === ticket_no || slot.car_reg_no === reg_no) return true;
                 else return false;
             })
+            formElement.createBtnActive(false)
+            slot_component.createSlotButtonActive(false)
         }
         slot_component.renderFilteredSlots(isReset)
+        no_slot_render.renderMessage()
     }
 }
 
