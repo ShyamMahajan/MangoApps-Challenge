@@ -71,6 +71,14 @@ export class CreateSlot {
 
     const slot_reg_no: HTMLDivElement = Parkslot.querySelector(".parking-slot__reg-number")! as HTMLDivElement
         if(slot_reg_no) slot_reg_no.textContent = `Car-Reg# : ${slot.car_reg_no || ""}`
+    
+    // if(!slot.isFree){
+    //   const freeBtn = document.createElement("button")
+    //   freeBtn.onclick = () => {
+    //     this.freeSlot(slot)
+    //   }
+    //   Parkslot.appendChild(freeBtn)
+    // }
   }
 
   park(slot_no:string, car_color: string, car_reg_no: string, ticket:string){
@@ -83,6 +91,17 @@ export class CreateSlot {
     ParkingSlotsState.updateCreateTicketState()
     this.updateSlot(slot)
     return slot;
+  }
+
+  freeSlot(slot:ParkingSlot){
+    const parkSlot= ParkingSlotsState.total_slots.find(Pslot => Pslot.slot_no === slot.slot_no)!
+    if(parkSlot){
+      parkSlot.isFree = true;
+      parkSlot.car_color = null;
+      parkSlot.car_reg_no = null;
+      parkSlot.ticket_no = null;
+    }
+    this.updateSlot(parkSlot)
   }
 
   renderFilteredSlots(isReset:boolean){

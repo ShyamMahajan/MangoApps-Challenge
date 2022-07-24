@@ -1,0 +1,19 @@
+--> Not using any framework:  As this system is very small in scale and would be performant in most of the cases I decided not to use any UI framework.
+--> Entire System is developed using HTML, TypeScript, SCSS and CSS
+    HTML :  Created the overall layout of the system. divided the components into two main sections -- 1. Parking-slots and 2. Menu
+            1. Parking Slots Section:
+                this section includes the view of parking-slots reserved and available.
+            2. Menu Seciotn
+                This sections includes The Filters and a form to Park the car providing details
+    SCSS/CSS : I am using SCSS as a CSS pre-processer, maintaining the uniform styling and a proper structure.
+    TypeScript/JavaScript : 
+            Initially, I started coding the solution using JS, I created few classes and methods but then I realised that using TypeScript would be a better choice so I converted my existing code into TypeScipt and decided to finish the rest using TypeScript.
+            I started with Parking slots, creating parking slot and keeping the state of the parking slots -- for that I created a Singleton class for ParkingSlot where I stored all the data related to the parking slots.
+            I created two directories Models and States so that I can keep my models and state Classes separate.
+            All the creation and modification of the ParkingSlot is handled using the only instance of the ParkingSlot class.
+            To render the UI on the screen I created a directory for Components where I stored the classes responsible to render and modify the UI.
+            I created components for ParkingSlot, ParkingForm, ParkingFilters and NoSlot message and exposing the methods to render and modify these components.
+            State class is interacting with the Components using the class instances calling the methods to update the UI as soon as the state changes.
+    Webpack:
+            I am using webpack to compile and run SCSS and TypeScript code. 
+
